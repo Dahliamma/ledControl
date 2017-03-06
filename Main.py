@@ -33,6 +33,7 @@ class LEDControl():
             sleep(0.5)
             print('Slept again for 0.5 seconds')
             i = i + 1
+        self.detect_press()
 
     def detect_press(self):
         try:
