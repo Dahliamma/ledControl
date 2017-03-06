@@ -18,16 +18,17 @@ class LEDControl():
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self._pin_in, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
         GPIO.setup(self._pin_out, GPIO.OUT)
+        GPIO.output(self._pin_out, False)
         self.detect_press()
 
     def light_LED(self, time):
         i = 1
         while i <= 5:
-            GPIO.output(16, GPIO.HIGH)
+            GPIO.output(self._pin_out, True)
             print('LED on')
             time.sleep(1)
             print('Slept for 0.5 seconds')
-            GPIO.output(16, GPIO.LOW)
+            GPIO.output(self._pin_out, False)
             print('LED off')
             time.sleep(1)
             print('Slept again for 0.5 seconds')
