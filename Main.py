@@ -1,7 +1,6 @@
 import RPi.GPIO as GPIO
 import time
 
-
 class LEDControl():
     """
     LED Control
@@ -18,7 +17,7 @@ class LEDControl():
         self._pin_out = pin_out
         self.detect_press()
         GPIO.setup(self._pin_in, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
-        GPIO.setup(self._pin_out, GPIO.OUT, pull_up_down = GPIO.PUD_DOWN)
+        GPIO.setup(self._pin_out, GPIO.OUT)
 
     def light_LED(self, time):
         i = 1
@@ -32,9 +31,9 @@ class LEDControl():
     def detect_press(self):
         try:
             GPIO.wait_for_edge(self._pin_in, GPIO.FALLING)
-            light_LED(5)
-            return void
+            self.light_LED(5)
+        except:
+            pass
 
-
-if __name__ = "__main__":
-    test_led = Main(19, 16)
+if __name__ == "__main__":
+    test_led = LEDControl(19, 16)
