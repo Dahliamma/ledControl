@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-import time
+from time import sleep
 
 class LEDControl():
     """
@@ -26,11 +26,11 @@ class LEDControl():
         while i <= 5:
             GPIO.output(self._pin_out, True)
             print('LED on')
-            time.sleep(1)
+            sleep(0.5)
             print('Slept for 0.5 seconds')
             GPIO.output(self._pin_out, False)
             print('LED off')
-            time.sleep(1)
+            sleep(0.5)
             print('Slept again for 0.5 seconds')
             i = i + 1
 
