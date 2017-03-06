@@ -15,9 +15,10 @@ class LEDControl():
     def __init__(self, pin_in, pin_out):
         self._pin_in = pin_in
         self._pin_out = pin_out
-        self.detect_press()
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(self._pin_in, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
         GPIO.setup(self._pin_out, GPIO.OUT)
+        self.detect_press()
 
     def light_LED(self, time):
         i = 1
