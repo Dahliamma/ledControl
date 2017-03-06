@@ -26,9 +26,11 @@ class LEDControl():
             GPIO.output(16, GPIO.HIGH)
             print('LED on')
             time.sleep(0.5)
+            print('Slept for 0.5 seconds')
             GPIO.output(16, GPIO.LOW)
             print('LED off')
             time.sleep(0.5)
+            print('Slept again for 0.5 seconds')
             i = i + 1
 
     def detect_press(self):
