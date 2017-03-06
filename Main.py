@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 
-class LEDControl()
+class LEDControl():
     """
     LED Control
 
@@ -20,19 +20,21 @@ class LEDControl()
         GPIO.setup(self._pin_in, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
         GPIO.setup(self._pin_out, GPIO.OUT, pull_up_down = GPIO.PUD_DOWN)
 
+    def light_LED(self, time):
+        i = 1
+        while i <= 5:
+            GPIO.output(16, GPIO.HIGH)
+            time.sleep(0.5)
+            GPIO.output(16, GPIO.HIGH)
+            time.sleep(0.5)
+            i = i + 1
+
     def detect_press(self):
         try:
             GPIO.wait_for_edge(self._pin_in, GPIO.FALLING)
             light_LED(5)
             return void
-    def light_LED(self, time):
-        i = 1
-        while i <=5:
-            GPIO.output(16, GPIO.HIGH)
-            time.sleep(0.5)
-            GPIO.output(16, GPIO.HIGH)
-            time.sleep(0.5)
-            i = i+1
+
 
 if __name__ = "__main__":
     test_led = Main(19, 16)
