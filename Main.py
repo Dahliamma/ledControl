@@ -24,8 +24,10 @@ class LEDControl():
         i = 1
         while i <= 5:
             GPIO.output(16, GPIO.HIGH)
+            print('LED on')
             time.sleep(0.5)
             GPIO.output(16, GPIO.LOW)
+            print('LED off')
             time.sleep(0.5)
             i = i + 1
 
