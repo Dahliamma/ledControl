@@ -25,7 +25,7 @@ class LEDControl():
         while i <= 5:
             GPIO.output(16, GPIO.HIGH)
             time.sleep(0.5)
-            GPIO.output(16, GPIO.HIGH)
+            GPIO.output(16, GPIO.LOW)
             time.sleep(0.5)
             i = i + 1
 
