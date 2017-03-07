@@ -19,7 +19,7 @@ class LEDControl():
         GPIO.setup(self._pin_in, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
         GPIO.setup(self._pin_out, GPIO.OUT)
         GPIO.output(self._pin_out, False)
-        self.detect_press()
+        GPIO.add_event_detect(self._pin_in, GPIO.FALLING, callback=self.light_LED, bouncetime=300)
 
     def light_LED(self, time):
         i = 1
@@ -33,14 +33,9 @@ class LEDControl():
             sleep(0.5)
             print('Slept again for 0.5 seconds')
             i = i + 1
-        self.detect_press()
-
-    def detect_press(self):
-        try:
-            GPIO.wait_for_edge(self._pin_in, GPIO.FALLING)
-            self.light_LED(5)
-        except:
-            pass
 
 if __name__ == "__main__":
     test_led = LEDControl(19, 16)
+    while True:
+        print('Waiting for 1 minute.')
+        sleep(1)
