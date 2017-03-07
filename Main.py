@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-from time import sleeps
+from time import sleep
 
 class LEDControl():
     """
