@@ -1,3 +1,12 @@
+"""
+LED Control Class
+Default pins: Input on 19, output on 16
+
+By:
+Mohamed Abdel-Hafiz
+Brittany Lowell
+"""
+
 import RPi.GPIO as GPIO
 from time import sleep
 
